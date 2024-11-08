@@ -129,13 +129,13 @@ def main():
                 quit()
 
         keys = pygame.key.get_pressed()
-        if keys[pygame.K_a] and player.x - player_vel > 0: # left
+        if (keys[pygame.K_a] or keys[pygame.K_LEFT]) and player.x - player_vel > 0: # left
             player.x -= player_vel
-        if keys[pygame.K_d] and player.x + player_vel + player.get_width() < WIDTH: # right
+        if (keys[pygame.K_d] or keys[pygame.K_RIGHT]) and player.x + player_vel + player.get_width() < WIDTH: # right
             player.x += player_vel
-        if keys[pygame.K_w] and player.y - player_vel > 0: # up
+        if (keys[pygame.K_w] or keys[pygame.K_UP]) and player.y - player_vel > 0: # up
             player.y -= player_vel
-        if keys[pygame.K_s] and player.y + player_vel + player.get_height() + 15 < HEIGHT: # down
+        if (keys[pygame.K_s] or keys[pygame.K_DOWN]) and player.y + player_vel + player.get_height() + 15 < HEIGHT: # down
             player.y += player_vel
         if keys[pygame.K_SPACE]:
             player.shoot()
@@ -190,7 +190,7 @@ def main_menu():
 
             instructions = [
                  "Hướng dẫn chơi:",
-                "- Di chuyển bằng các phím W, A, S, D",
+                "- Di chuyển bằng các phím W, A, S, D hoặc \u2191 \u2193 \u2190 \u2192",
                 "- Nhấn SPACE để bắn laser",
                 "- Tránh va chạm với kẻ địch và đạn",
                 "- Thu thập các gói hồi máu để tăng máu cho bản thân",
